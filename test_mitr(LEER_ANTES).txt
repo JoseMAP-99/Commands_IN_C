@@ -1,0 +1,52 @@
+/**Autores: Eduardo Maldonado Fernández y José María AMusquívar Poppe
+  *Cabecera del programa mitr.c.
+  *01/04/19.*/
+
+En este archivo, vamos a proceder a probar una serie de comando con nuestro programa "mitr" para comprobar que cumple la función de realizar una sustitución de unos caracteres (cadena 1) por otros caracteres (cadena 2), ambos de misma longitud, con un fichero origen (fichero_origen) y el resultado de estos cambios de los caracteres del fichero origen a un fichero destino(fichero_dest). 
+Mediante la consola de Linux se ejecutará el programa mitr de la siguiente manera: 
+mitr cadena1 cadena 2 fichero_origen fichero_destino
+(-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------)
+
+Para realizar estas pruebas, tendremos un archivo origen y un archivo destino llamado: entrada.txt, salida.txt respectivamente, el archivo entrada.txt está incorporado en la entrega de la practica 3.
+Además, para todas las pruebas compilaremos así: "gcc mitr.c -o m" y para comprobar el resultado "cat salida.txt":
+
+Prueba para sustituir las vocales por caracteres aleatorios
+1- ./m mitr aeiou xywkz entrada.txt salida.txt
+
+Prueba para sustituir letras por números y viceversa.
+2- ./m mitr lptav 12345 entrada.txt salida.txt
+3- ./m mitr 98765 inwaq entrada.txt salida.txt
+
+Prueba para que el el fichero de origen sea también el fichero destino
+4- ./m mitr ca pd entrada.txt entrada.txt
+Prueba poniendo tanto el fichero de origen como el fichero destino con sus respectivas rutas
+5.- ./m mitr aeiou xywkz ./entrada.txt ./salida.txt
+Cuidado: ./entrada.txt debido a que es el directorio donde estamos establecido y donde esta los ficheros (en nuestro caso home/aluno/nuestro_user/entrada.txt)
+
+Prueba para dos cadenas de caracteres distintas de longtiud
+6.- ./m mitr aeiou zp entrada.txt salida.txt
+7.- ./m mitr zp aeiou entrada.txt salida.txt
+
+Prueba para caracteres especiales
+8.- ./m mitr aeiou @#$%* entrada.txt salida.txt
+9.- ./m mitr !=$ aei entrada.txt salida.txt
+
+Prueba cuando falta diversos argumentos(Debe salir: No ha introducido suficientes argumentos o demasiados...)
+10.- ./m plaeio entrada.txt salida.txt
+11.- ./m mitr ajkl pqez epq entrada.txt salida.txt
+
+
+
+Ahora haremos prueba para el caso mitr -s cadena1 fichero_origen fichero_destino:
+Prueba para eliminar todos los caracteres repetivos de la cadena escrita por el usuario
+12.- ./m mitr -s 'cz' entrada.txt salida.txt
+
+Prueba para eliminar todos los espacios repetidos consecutivamente
+13.- ./m mitr -s ' ' entrada.txt salida.txt
+
+Pruebas para el caso mitr -d cadena 1 fichero_origen fichero_destino
+Prueba para eliminar todos los espacios
+14.- ./m mitr -d ' ' entrada.txt salida.txt
+
+Prueba cuando se intenta meter ambos casos
+15.-./m mitr -ds 'ar' entrada.txt salida.txt
